@@ -337,25 +337,25 @@ public class GameManager {
 
 
                                     if (userID < 0 || gameID < 0 || releaseYear < 0 || totalAchievements < 0 || achievementsCompleted < 0) {
-                                        System.err.println(RED + "ERROR Game not added! No numbers can be less than 0: " + line + "was not added!" + RESET);
+                                        System.err.println(RED + "ERROR Game not added! No numbers can be less than 0: " + line + " was not added!" + RESET);
                                         continue;
                                     }
 
 
                                     if (releaseYear < 1959 || releaseYear > currentYear) {
-                                        System.err.println(RED + "ERROR Game not added! Release year must be after 1958 and not in the future: " + line + "was not added!" + RESET);
+                                        System.err.println(RED + "ERROR Game not added! Release year must be after 1958 and not in the future: " + line + " was not added!" + RESET);
                                         continue;
                                     }
 
 
                                     if (achievementsCompleted > totalAchievements) {
-                                        System.err.println(RED + "ERROR Game not added! Achievements completed greater than total: " + line + "was not added!" + RESET);
+                                        System.err.println(RED + "ERROR Game not added! Achievements completed greater than total: " + line + " was not added!" + RESET);
                                         continue;
                                     }
 
 
                                     if (!isGameIdUniqueForUser(userID, gameID)) {
-                                        System.err.println(RED + "ERROR Game not added! Game ID not unique for user " + userID + "): " + line + "was not added!" + RESET);
+                                        System.err.println(RED + "ERROR Game not added! Game ID not unique for user " + userID + "): " + line + " was not added!" + RESET);
                                         continue;
                                     }
 
