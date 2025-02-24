@@ -130,7 +130,7 @@ public class UpdateVideoGame {
                         default:
                             return RED + "Not a valid choice." + RESET;
                     }
-
+                    game.setGameCompleted(game.getNumAchievementsCompleted() == game.getNumTotalAchievements()); // technically gets reran after successful update (option 6), wanted to ensure it updates live with each update.
                     }
 
 
