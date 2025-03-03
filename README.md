@@ -1,2 +1,2 @@
 # CEN-3024C-24204_VideoGameAchievementManager
-CEN-3024C-24204 Module 7 | DMS Project Phase 1
+Updated: 03/02/2025 - CEN-3024C-24204 Module 8 | DMS Project Phase 2: Testing
