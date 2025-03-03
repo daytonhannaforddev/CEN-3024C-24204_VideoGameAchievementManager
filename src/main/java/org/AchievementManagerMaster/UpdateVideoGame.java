@@ -1,3 +1,5 @@
+package org.AchievementManagerMaster;
+
 /*Dayton Hannaford,
 CEN-3024C-24204
 
@@ -23,6 +25,7 @@ public class UpdateVideoGame {
 
     public UpdateVideoGame(Scanner scanner) {
         this.scanner = scanner;
+
     }
 
             public String updateGame(GameManager gameManager) {
@@ -43,6 +46,8 @@ public class UpdateVideoGame {
 
                 boolean updating = true;
                 while (updating) {
+
+
                 // Current Info
                 System.out.println(BOLD + BLINK_ORANGE + "\nCurrent Game Info:" + RESET);
                 System.out.println("Game ID: " + game.getGameID());
@@ -130,7 +135,7 @@ public class UpdateVideoGame {
                         default:
                             return RED + "Not a valid choice." + RESET;
                     }
-                    game.setGameCompleted(game.getNumAchievementsCompleted() == game.getNumTotalAchievements()); // technically gets reran after successful update (option 6), wanted to ensure it updates live with each update.
+                    game.setGameCompleted(game.getNumAchievementsCompleted() == game.getNumTotalAchievements());
                     }
 
 

@@ -1,3 +1,5 @@
+package org.AchievementManagerMaster;
+
 /*Dayton Hannaford,
 CEN-3024C-24204
 
@@ -280,7 +282,7 @@ public class GameManager {
             sb.append(BOLD + GREEN + "\nSuccess! Games belonging to User ID: " + RESET + PURPLE + userID + RESET + GREEN + ":" + RESET + "\n");
             for (VideoGame vg : userGames) {
 
-// recheck game completed boolean
+             // recheck game completed boolean
 
                 vg.setGameCompleted(vg.getNumAchievementsCompleted() == vg.getNumTotalAchievements());
 
@@ -304,7 +306,7 @@ public class GameManager {
         if (!file.exists()) {
             System.err.println(RED + "ERROR: File " + filePath + " does not exist." + RESET);
             return false;
-            }
+        }
 
         String fileName = file.getName().toLowerCase();
         if (!(fileName.endsWith(".csv") || fileName.endsWith(".txt"))) {
@@ -312,72 +314,75 @@ public class GameManager {
             return false;
         }
 
+        boolean anyInvalidData = false; // Tracks if invalid data was found
 
-                        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-                            String line;
-                            int currentYear = LocalDate.now().getYear();
-                            while ((line = br.readLine()) != null) {
-                                if (line.trim().isEmpty()) continue;
-                                String[] tokens = line.split(",");
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            int currentYear = LocalDate.now().getYear();
+            while ((line = br.readLine()) != null) {
+                if (line.trim().isEmpty()) continue;
+                String[] tokens = line.split(",");
 
-                                if (tokens.length < 6) {
-                                    System.err.println(RED + "ERROR! Not enough fields: " + line + RESET);
-                                    continue;
-                                    }
-                                try {
+                if (tokens.length < 6) {
+                    System.err.println(RED + "ERROR! Not enough fields: " + line + RESET);
+                    anyInvalidData = true; // = True to indicate failure
+                    continue;
+                }
 
+                try {
+                    int userID = Integer.parseInt(tokens[0].trim());
+                    int gameID = Integer.parseInt(tokens[1].trim());
+                    String gameTitle = tokens[2].trim();
+                    int releaseYear = Integer.parseInt(tokens[3].trim());
+                    int totalAchievements = Integer.parseInt(tokens[4].trim());
+                    int achievementsCompleted = Integer.parseInt(tokens[5].trim());
+                    boolean gameCompleted = (achievementsCompleted == totalAchievements);
 
-                                    int userID = Integer.parseInt(tokens[0].trim());
-                                    int gameID = Integer.parseInt(tokens[1].trim());
-                                    String gameTitle = tokens[2].trim();
-                                    int releaseYear = Integer.parseInt(tokens[3].trim());
-                                    int totalAchievements = Integer.parseInt(tokens[4].trim());
-                                    int achievementsCompleted = Integer.parseInt(tokens[5].trim());
-                                    boolean gameCompleted = (achievementsCompleted == totalAchievements);
-
-
-                                    if (userID < 0 || gameID < 0 || releaseYear < 0 || totalAchievements < 0 || achievementsCompleted < 0) {
-                                        System.err.println(RED + "ERROR Game not added! No numbers can be less than 0: " + line + " was not added!" + RESET);
-                                        continue;
-                                    }
-
-
-                                    if (releaseYear < 1959 || releaseYear > currentYear) {
-                                        System.err.println(RED + "ERROR Game not added! Release year must be after 1958 and not in the future: " + line + " was not added!" + RESET);
-                                        continue;
-                                    }
-
-
-                                    if (achievementsCompleted > totalAchievements) {
-                                        System.err.println(RED + "ERROR Game not added! Achievements completed greater than total: " + line + " was not added!" + RESET);
-                                        continue;
-                                    }
-
-
-                                    if (!isGameIdUniqueForUser(userID, gameID)) {
-                                        System.err.println(RED + "ERROR Game not added! Game ID not unique for user " + userID + "): " + line + " was not added!" + RESET);
-                                        continue;
-                                    }
-
-
-                                    VideoGame vg = new VideoGame(userID, gameID, gameTitle, releaseYear, totalAchievements);
-                                    vg.setNumAchievementsCompleted(achievementsCompleted);
-                                    vg.setGameCompleted(gameCompleted);
-                                    addGame(vg);
-                                } catch (NumberFormatException ex) {
-                                    System.err.println(RED + "ERROR Game not added! Number format error: " + line + " was not added!" + RESET);
-                                }
-                            }
-
-
-                            return true;
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                            return false;
-                        }
+                    if (userID < 0 || gameID < 0 || releaseYear < 0 || totalAchievements < 0 || achievementsCompleted < 0) {
+                        System.err.println(RED + "ERROR Game not added! No numbers can be less than 0: " + line + " was not added!" + RESET);
+                        anyInvalidData = true;
+                        continue;
                     }
 
-// Separate method for ensuring that a user can have the same game as another, but a user cannot have the same game twice
+                    if (releaseYear < 1959 || releaseYear > currentYear) {
+                        System.err.println(RED + "ERROR Game not added! Release year must be after 1958 and not in the future: " + line + " was not added!" + RESET);
+                        anyInvalidData = true;
+                        continue;
+                    }
+
+                    if (achievementsCompleted > totalAchievements) {
+                        System.err.println(RED + "ERROR Game not added! Achievements completed greater than total: " + line + " was not added!" + RESET);
+                        anyInvalidData = true;
+                        continue;
+                    }
+
+                    if (!isGameIdUniqueForUser(userID, gameID)) {
+                        System.err.println(RED + "ERROR Game not added! Game ID not unique for user " + userID + "): " + line + " was not added!" + RESET);
+                        anyInvalidData = true;
+                        continue;
+                    }
+
+                    VideoGame vg = new VideoGame(userID, gameID, gameTitle, releaseYear, totalAchievements);
+                    vg.setNumAchievementsCompleted(achievementsCompleted);
+                    vg.setGameCompleted(gameCompleted);
+                    addGame(vg);
+                } catch (NumberFormatException ex) {
+                    System.err.println(RED + "ERROR Game not added! Number format error: " + line + " was not added!" + RESET);
+                    anyInvalidData = true;
+                }
+            }
+
+            // If any invalid data was encountered, return false
+            return !anyInvalidData;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+    // Separate method for ensuring that a user can have the same game as another, but a user cannot have the same game twice
     public boolean isGameIdUniqueForUser(int userID, int gameID) {
         List<VideoGame> userGames = games.get(userID);
         if (userGames != null) {
