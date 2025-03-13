@@ -1,0 +1,50 @@
+123,101,Super Mario Bros,1985,50,30,false
+123,102,The Legend of Zelda,1986,40,40,true
+2,201,Metroid,1986,60,20,false
+2,202,Donkey Kong Country,1994,45,45,true
+3,301,Pac-Man,1980,35,15,false
+123,103,Donkey Kong,1981,30,30,true
+123,104,Tetris,1984,25,10,false
+2,203,Sonic the Hedgehog,1991,40,35,false
+2,204,Mega Man 2,1988,50,25,false
+3,302,Castlevania,1986,45,45,true
+3,303,Street Fighter II,1991,60,40,false
+4,401,Final Fantasy,1987,55,55,true
+4,402,Resident Evil,1996,70,30,false
+5,501,Super Metroid,1994,50,50,true
+-5,502,Chrono Trigger,1995,45,20,false
+1,105,Mortal Kombat,1992,30,30,true
+2,205,Half-Life,1998,60,15,false
+3,304,Portal,2007,40,40,true
+4,403,Bioshock,2007,65,50,false
+5,503,The Witcher,2007,70,70,true
+1,106,Donkey Kong Jr,1982,20,10,false
+1,107,Excitebike,1984,25,15,false
+2,206,Super Smash Bros,1999,45,45,true
+2,207,Pikmin,2001,35,10,false
+3,305,Luigi's Mansion,2001,30,30,true
+3,306,Fire Emblem,1990,50,20,false
+4,404,Golden Axe,1989,40,20,false
+4,405,Ridge Racer,1993,30,30,true
+5,504,Crash Bandicoot,1996,45,30,false
+5,505,Spyro the Dragon,1998,35,35,true
+1,108,EarthBound,1994,50,25,false
+2,208,Animal Crossing,2001,30,15,false
+3,307,F-Zero,1990,40,40,true
+4,406,Star Fox,1993,30,15,false
+5,506,Shovel Knight,2014,25,10,false
+1,109,Kirby's Adventure,1993,35,35,true
+2,209,Super Mario Kart,1992,40,20,false
+3,308,Donkey Kong Country Returns,2010,50,50,true
+4,407,Mario Kart 64,1996,45,30,false
+5,507,Fable,2004,60,45,false
+1,110,Star Wars,1983,55,30,false
+2,210,Castlevania: Symphony of the Night,1997,50,50,true
+3,309,Gran Turismo,1997,40,20,false
+4,408,Resident Evil 2,1998,70,70,true
+5,508,God of War,2005,65,40,false
+1,111,SimCity,1989,30,15,false
+2,211,Final Fantasy VII,1997,60,60,true
+3,310,Baldur's Gate,1998,50,20,false
+4,409,Metal Gear Solid,1998,55,55,true
+5,509,Silent Hill,1999,45,25,false
