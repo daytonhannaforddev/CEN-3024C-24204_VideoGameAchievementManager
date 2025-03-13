@@ -3,13 +3,13 @@ package org.AchievementManagerMaster;
 /*Dayton Hannaford,
 CEN-3024C-24204
 
-This class houses the update information logic. It was separated due to making it easier to ensure that when information is updated, it can all be verified to follow any given fields requirements. This should also make it
+This class house(d)s the update information logic. It was separated due to making it easier to ensure that when information is updated, it can all be verified to follow any given fields requirements. This should also make it
 easier to transition to a database in future phases.*/
 
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class UpdateVideoGame {
+public class CurrentlyDefunct_UpdateVideoGame {
     private Scanner scanner;
 
     public final String RED = "\u001B[31m";
@@ -23,7 +23,7 @@ public class UpdateVideoGame {
     // ~~~ Reset 'color'
     public final String RESET = "\u001B[0m";
 
-    public UpdateVideoGame(Scanner scanner) {
+    public CurrentlyDefunct_UpdateVideoGame(Scanner scanner) {
         this.scanner = scanner;
 
     }
