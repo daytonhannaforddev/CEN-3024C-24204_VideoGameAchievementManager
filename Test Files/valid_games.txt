@@ -1,0 +1,20 @@
+Super Mario Bros,1985,50,50
+The Legend of Zelda,1986,30,15
+Metroid,1986,40,20
+Sonic the Hedgehog,1991,25,25
+Street Fighter II,1991,35,20
+Mortal Kombat,1992,30,10
+Donkey Kong Country,1994,20,20
+Final Fantasy VII,1997,60,60
+Resident Evil,1996,30,15
+Half-Life,1998,40,35
+Halo: Combat Evolved,2001,50,45
+GTA III,2001,40,40
+World of Warcraft,2004,70,50
+Minecraft,2011,25,20
+Fortnite,2017,50,30
+Overwatch,2016,40,20
+The Witcher 3,2015,60,50
+Red Dead Redemption,2010,45,45
+Call of Duty: Modern Warfare,2007,35,30
+Cyberpunk 2077,2020,55,20
