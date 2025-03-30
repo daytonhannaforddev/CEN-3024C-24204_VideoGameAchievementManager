@@ -1,0 +1,20 @@
+Bad Game,1950,30,20
+,2000,30,20
+Another Game,abc,30,20
+Yet Another Game,2000,-5,0
+Cool Game,2005,40,50
+GameX,2025,20,10
+Missing Fields,2000,30
+No Numeric,2000,thirty,20
+Bad Completion,2000,30,abc
+   ,2000,30,20
+Game,1940,30,20
+Future Game,2030,30,20
+Negative Completion,2000,30,-5
+Mismatch,2000,30,31
+NonInteger,2000,30.5,20
+Another NonInteger,2000,30,20.5
+Game Without Commas 2000 30 20
+Invalid,Entry
+Just Text
+Game,2000,30,forty
