@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.AchievementManagerMaster","l":"DatabaseManager"},{"p":"org.AchievementManagerMaster","l":"GameManager"},{"p":"org.AchievementManagerMaster.GUI","l":"GameManagerGUI"},{"p":"org.AchievementManagerMaster","l":"Main"},{"p":"org.AchievementManagerMaster","l":"VideoGame"}];updateSearchResults();
